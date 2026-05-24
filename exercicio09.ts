@@ -51,7 +51,7 @@ export function exercicio09(): void {
 
   const num1 = NumDecimal("primeiro Numero: ");
   const op = readlineSync.question("escolha a operacao |+,-,*,/|: ");
-  const num2 = NumDecimal("segundo NNumero: ");
+  const num2 = NumDecimal("segundo Numero: ");
 
   let resultado: number;
 
