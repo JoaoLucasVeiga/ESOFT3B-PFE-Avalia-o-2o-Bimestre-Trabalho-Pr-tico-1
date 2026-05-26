@@ -80,14 +80,9 @@ function mostrarMenu(): void {
             break;
                 
             case 4:
-                let celsius: number = 24;
-
-                console.log("==================================");
-                console.log(" CONVERSOR DE TEMPERATURA ");
-                console.log("==================================");
-
-                console.log(`Temperatura inicial: ${celsius}°C`);
-
+                rl.question("Digite a temperatura em graus Celsius: ", (entrada: string) => {
+                    const celsius = Number(entrada);
+                
                 /*
                 Aplicação da fórmula:
                 F = (C × 9/5) + 32
@@ -120,7 +115,10 @@ function mostrarMenu(): void {
                 Também exibe uma classificação simples
                 da temperatura informada.
                 */
+                
             voltarAoMenu();
+                });
+
             break;
 
             case 5:
@@ -133,6 +131,30 @@ function mostrarMenu(): void {
                         }
                     }
             voltarAoMenu();
+            break;
+
+            case 6:
+                const numbers: number[] = [];
+                let count = 0;
+                function pedirNumero() {
+                    if (count < 5) {
+                        rl.question(`Digite o ${count + 1}º número: `, (entrada: string) => {
+                            const num = Number(entrada);
+                            if (isNaN(num)) {
+                                console.log("Valor inválido. Inserindo 0.");
+                                numbers.push(0);
+                            } else {
+                                numbers.push(num);
+                            }
+                            count++;
+                            pedirNumero();
+                        });
+                    } else {
+                        console.log(`\nArray informado: [${numbers.join(", ")}]`);
+                        voltarAoMenu();
+                    }
+                }
+                pedirNumero();
             break;
 
             case 7:
@@ -223,7 +245,8 @@ function mostrarMenu(): void {
             break;
 
             case 10:
-            let numeros: number[] = [8, 3, 15, 1, 9, 2];
+                rl.question("Digite os números separados por espaço: ", (entrada: string) => {
+                const numeros: number[] = entrada.split(" ").map(num => Number(num.trim()));
 
                 console.log("Array original:");
                 console.log(numeros);
@@ -240,6 +263,7 @@ function mostrarMenu(): void {
                 A função (a - b) garante a ordenação crescente.
                 */
             voltarAoMenu();
+                });
             break;
 
             case 11:
@@ -262,6 +286,44 @@ function mostrarMenu(): void {
                         pessoa.exibirInfo();
 
                         voltarAoMenu();
+                    });
+                });
+            break;
+
+            case 12:
+                class Pessoa1 {
+                    protected nome: string;
+                    protected idade: number;
+                    constructor(nome: string, idade: number) {
+                        this.nome = nome;
+                        this.idade = idade;
+                    }
+                    exibirInfo(): void {
+                        console.log(`Nome: ${this.nome}`);
+                        console.log(`Idade: ${this.idade} anos`);
+                    }
+                }
+
+                class Aluno extends Pessoa1 {
+                    private matricula: string;
+                    constructor(nome: string, idade: number, matricula: string) {
+                        super(nome, idade);
+                        this.matricula = matricula;
+                    }
+                    exibirInfo(): void {
+                        super.exibirInfo();
+                        console.log(`Matrícula: ${this.matricula}`);
+                    }
+                }
+
+                rl.question("Digite o nome do aluno: ", (nome: string) => {
+                    rl.question("Digite a idade do aluno: ", (idade: string) => {
+                        rl.question("Digite a matrícula do aluno: ", (matricula: string) => {
+                            const aluno = new Aluno(nome, Number(idade), matricula);
+                            console.log("\nInformações do Aluno:");
+                            aluno.exibirInfo();
+                            voltarAoMenu();
+                        });
                     });
                 });
             break;
@@ -434,77 +496,23 @@ function mostrarMenu(): void {
             break;
 
             case 16:
-                let senha: string = "Teste123";
-                
-                let possuiMaiuscula = /[A-Z]/.test(senha);
-                let possuiMinuscula = /[a-z]/.test(senha);
-                let possuiNumero = /[0-9]/.test(senha);
-                let tamanhoValido = senha.length >= 8;
-
-                // Contador de requisitos atendidos
-                let requisitosAtendidos = 0;
-
-                if (possuiMaiuscula) requisitosAtendidos++;
-                if (possuiMinuscula) requisitosAtendidos++;
-                if (possuiNumero) requisitosAtendidos++;
-                if (tamanhoValido) requisitosAtendidos++;
-
-                if (
-                    possuiMaiuscula &&
-                    possuiMinuscula &&
-                    possuiNumero &&
-                    tamanhoValido
-                ) {
-
-                    console.log("Senha válida!");
-                    console.log("Todos os requisitos foram atendidos.");
-
-                } else {
-
-                    console.log("Senha inválida!");
-                    console.log("Critérios não atendidos:");
-
-                    if (!tamanhoValido) {
-                        console.log("- Deve possuir no mínimo 8 caracteres.");
-                    }
-
-                    if (!possuiMaiuscula) {
-                        console.log("- Deve conter uma letra maiúscula.");
-                    }
-
-                    if (!possuiMinuscula) {
-                        console.log("- Deve conter uma letra minúscula.");
-                    }
-
-                    if (!possuiNumero) {
-                        console.log("- Deve conter pelo menos um número.");
-                    }
-                }
-
-                console.log("----------------------------------");
-                console.log(`Requisitos atendidos: ${requisitosAtendidos}/4`);
-
-                // Classificação da senha
-                if (requisitosAtendidos <= 2) {
-                    console.log("Nível da senha: FRACA");
-                } else if (requisitosAtendidos == 3) {
-                    console.log("Nível da senha: MÉDIA");
-                } else {
-                    console.log("Nível da senha: FORTE");
-                }
-
-                console.log("==================================");
-
-                /*
-                Explicação:
-                O programa utiliza expressões regulares (RegEx) para validar os critérios da senha.
-
-                Além disso, também exibe:
-                - requisitos atendidos
-                - critérios faltando
-                - nível de segurança da senha
-                */
-            voltarAoMenu();   
+                rl.question("Digite a senha para validação: ", (senha: string) => { 
+                    const temMaiuscula = /[A-Z]/.test(senha);
+                    const temMinuscula = /[a-z]/.test(senha);
+                    const temNumero = /[0-9]/.test(senha);
+                    const temOitoCaracteres = senha.length >= 8;
+                    if (temMaiuscula && temMinuscula && temNumero && temOitoCaracteres) {
+                        console.log("Senha válida!");
+                    } else {
+                        console.log("Senha inválida! A senha deve conter:");
+                        if (!temOitoCaracteres) console.log("- Pelo menos 8 caracteres");
+                        if (!temMaiuscula) console.log("- Pelo menos uma letra maiúscula");
+                        if (!temMinuscula) console.log("- Pelo menos uma letra minúscula");
+                        if (!temNumero) console.log("- Pelo menos um número");
+                    } 
+                    voltarAoMenu();  
+                });
+ 
             break;
 
             case 17:
@@ -545,6 +553,15 @@ function mostrarMenu(): void {
 
                 jogar();
 
+            break;
+
+            case 18:
+                rl.question("Digite uma string: ", (entrada: string) => {
+                    const palavras = entrada.trim().split(/\s+/);
+                    const quantidadePalavras = palavras.filter(p => p.length > 0).length;
+                    console.log(`A string "${entrada}" contém ${quantidadePalavras} palavra(s).`);
+                    voltarAoMenu();
+                });
             break;
 
             case 0:
