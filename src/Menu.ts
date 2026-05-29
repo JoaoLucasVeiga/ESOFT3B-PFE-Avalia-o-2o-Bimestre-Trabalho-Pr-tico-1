@@ -49,6 +49,10 @@ function mostrarMenu(): void {
                     });
                 });
             break;
+            /* 
+            Explicação:
+            O programa lê um número inteiro do usuário, verifica se é válido e determina se é par ou ímpar usando o operador módulo (%). O resultado é exibido e o usuário tem a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 2:
                 rl.question("Digite um número inteiro: ", (entrada: string) => {
@@ -62,6 +66,10 @@ function mostrarMenu(): void {
                     voltarAoMenu();
                 });
             break;
+            /*
+            Explicação:
+            O programa solicita ao usuário que digite três notas, calcula a média aritmética dessas notas e determina a situação do aluno com base na média. A situação é classificada como "APROVADO" para médias iguais ou superiores a 6, "RECUPERAÇÃO" para médias entre 4 e 5.99, e "REPROVADO" para médias inferiores a 4. O resultado é exibido com a média formatada para duas casas decimais.
+            */
 
             case 3:
                 rl.question("Digite a primeira nota: ", (nota1: string) => {
@@ -78,15 +86,15 @@ function mostrarMenu(): void {
                     });
                 });
             break;
+            /*
+            Explicação:
+            O programa converte uma temperatura em graus Celsius para Fahrenheit utilizando a fórmula matemática da conversão. O resultado é exibido com duas casas decimais. Além disso, o programa classifica a temperatura informada como "Clima muito frio" para temperaturas iguais ou inferiores a 0°C, "Clima quente" para temperaturas iguais ou superiores a 30°C, e "Clima agradável" para temperaturas entre 1°C e 29°C.
+            */
                 
             case 4:
                 rl.question("Digite a temperatura em graus Celsius: ", (entrada: string) => {
                     const celsius = Number(entrada);
-                
-                /*
-                Aplicação da fórmula:
-                F = (C × 9/5) + 32
-                */
+
                 let fahrenheit: number = (celsius * 9/5) + 32;
 
                 console.log("----------------------------------");
@@ -95,7 +103,6 @@ function mostrarMenu(): void {
 
                 console.log("----------------------------------");
 
-                // Informação adicional sobre o clima
                 if (celsius <= 0) {
                     console.log("Classificação: Clima muito frio.");
                 } else if (celsius >= 30) {
@@ -105,21 +112,18 @@ function mostrarMenu(): void {
                 }
 
                 console.log("==================================");
-
-                /*
-                Explicação:
-                O programa converte uma temperatura em
-                graus Celsius para Fahrenheit utilizando
-                a fórmula matemática da conversão.
-
-                Também exibe uma classificação simples
-                da temperatura informada.
-                */
-                
             voltarAoMenu();
                 });
-
             break;
+            /*
+            Explicação:
+            O programa converte uma temperatura em
+            graus Celsius para Fahrenheit utilizando
+            a fórmula matemática da conversão.
+
+            Também exibe uma classificação simples
+            da temperatura informada.
+            */
 
             case 5:
                 console.log("Números pares de 1 a 20:\n");
@@ -132,6 +136,10 @@ function mostrarMenu(): void {
                     }
             voltarAoMenu();
             break;
+            /*
+            Explicação:
+            O programa utiliza um loop for para iterar de 1 a 20 e verifica se cada número é par usando o operador módulo (%). Se o número for par, ele é exibido no console. Após exibir os números pares, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 6:
                 const numbers: number[] = [];
@@ -156,6 +164,10 @@ function mostrarMenu(): void {
                 }
                 pedirNumero();
             break;
+            /*
+            Explicação:
+            O programa lê 5 números do usuário, armazenando-os em um array. Ele valida cada entrada para garantir que seja um número, substituindo entradas inválidas por 0. Após coletar os 5 números, o programa exibe o array completo e oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 7:
                 rl.question("Quantos números deseja inserir no array? ", (entradaQtd: string) => {
@@ -199,7 +211,11 @@ function mostrarMenu(): void {
                     pedirNumero();
                 });
             break;
-
+            /*
+            Explicação:
+            O programa lê uma string do usuário e conta o número de vogais presentes nela, exibindo o resultado no console. Ele oferece a opção de voltar ao menu para escolher outro exercício.
+            */    
+                
             case 8:
                 rl.question("Digite uma string: ", (entrada: string) => {
                     const vogais = entrada.match(/[aeiouAEIOU]/g);
@@ -208,7 +224,11 @@ function mostrarMenu(): void {
                     voltarAoMenu();
                 });
             break;
-
+            /*
+            Explicação:
+            O programa utiliza uma expressão regular para encontrar todas as vogais (tanto maiúsculas quanto minúsculas) em uma string fornecida pelo usuário. Ele conta o número de vogais encontradas e exibe o resultado no console. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
+                
             case 9:
                 rl.question("primeiro Numero: ", (entrada1: string) => {
                     const num1 = Number(entrada1);
@@ -243,6 +263,10 @@ function mostrarMenu(): void {
             }); 
             });
             break;
+            /*
+            Explicação:
+            O programa implementa uma calculadora simples que realiza as quatro operações básicas (adição, subtração, multiplicação e divisão). Ele solicita ao usuário dois números e a operação desejada, realiza o cálculo correspondente e exibe o resultado. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 10:
                 rl.question("Digite os números separados por espaço: ", (entrada: string) => {
@@ -251,20 +275,18 @@ function mostrarMenu(): void {
                 console.log("Array original:");
                 console.log(numeros);
 
-                // Ordenação crescente
                 numeros.sort((a, b) => a - b);
 
                 console.log("Array em ordem crescente:");
                 console.log(numeros);
 
-                /*
-                Explicação:
-                O método sort() organiza os números.
-                A função (a - b) garante a ordenação crescente.
-                */
             voltarAoMenu();
                 });
             break;
+            /*
+            Explicação:
+            O programa lê uma série de números separados por espaço, converte-os para um array de números e exibe o array original. Em seguida, ele ordena o array em ordem crescente usando o método sort() com uma função de comparação personalizada e exibe o array ordenado. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 11:
                 class Pessoa {
@@ -289,6 +311,10 @@ function mostrarMenu(): void {
                     });
                 });
             break;
+            /*
+            Explicação:
+            O programa implementa uma classe Pessoa com atributos privados para nome e idade, e um método para exibir as informações. Ele solicita ao usuário o nome e a idade, cria uma instância da classe Pessoa e exibe as informações. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 12:
                 class Pessoa1 {
@@ -327,6 +353,10 @@ function mostrarMenu(): void {
                     });
                 });
             break;
+            /*
+            Explicação:
+            O programa define uma classe Pessoa1 com atributos protegidos para nome e idade, e um método para exibir essas informações. A classe Aluno herda de Pessoa1 e adiciona um atributo matricula, além de sobrescrever o método exibirInfo() para incluir a matrícula. O programa solicita ao usuário o nome, idade e matrícula do aluno, cria uma instância da classe Aluno e exibe as informações. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 13:
                 interface Veiculo {
@@ -443,6 +473,10 @@ function mostrarMenu(): void {
                     });
                 });
             break;
+             /*
+            Explicação:
+            O programa implementa uma classe Carro com métodos para ligar, desligar, acelerar e frear. Ele solicita ao usuário a marca, modelo e incremento de velocidade do carro, cria uma instância da classe Carro e apresenta um menu para interagir com o carro. O usuário pode ligar, acelerar, frear ou desligar o carro, e o painel exibe as informações atuais do veículo. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 14:
                 rl.question("Digite um número inteiro para ver sua tabuada: ", (entrada: string) => {
@@ -459,6 +493,10 @@ function mostrarMenu(): void {
                     voltarAoMenu();
                 });
             break;
+            /*
+            Explicação:
+            O programa solicita ao usuário um número inteiro e exibe a tabuada desse número de 1 a 10. Ele valida a entrada para garantir que seja um número inteiro válido. Após exibir a tabuada, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 15:
                 rl.question("Peso (kg): ", (pesoInput: string) => {
@@ -494,6 +532,10 @@ function mostrarMenu(): void {
                     });
                 });
             break;
+            /*
+            Explicação:
+            O programa calcula o Índice de Massa Corporal (IMC) com base no peso e altura fornecidos pelo usuário. Ele valida as entradas para garantir que sejam números positivos. O IMC é calculado usando a fórmula: IMC = peso / (altura * altura), onde a altura é convertida de centímetros para metros. O programa classifica o resultado do IMC em categorias como "ABAIXO DO PESO", "NORMAL", "SOBREPESO" e "OBESIDADE". Após exibir o resultado, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 16:
                 rl.question("Digite a senha para validação: ", (senha: string) => { 
@@ -512,8 +554,11 @@ function mostrarMenu(): void {
                     } 
                     voltarAoMenu();  
                 });
- 
             break;
+            /*
+            Explicação:
+            O programa valida uma senha com base em critérios específicos: deve conter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um número. Ele utiliza expressões regulares para verificar a presença de cada tipo de caractere e a extensão da senha. O resultado da validação é exibido no console, indicando se a senha é válida ou quais critérios não foram atendidos. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 17:
                 console.log("Tentei sortear um número entre 1 e 100...");
@@ -552,8 +597,11 @@ function mostrarMenu(): void {
                 }
 
                 jogar();
-
             break;
+            /*
+            Explicação:
+            O programa implementa um jogo de adivinhação onde o computador sorteia um número entre 1 e 100, e o usuário tenta adivinhá-lo. O programa fornece dicas indicando se o chute do usuário é maior ou menor que o número secreto, e conta o número de tentativas feitas. Quando o usuário acerta o número, o programa exibe uma mensagem de parabéns e informa quantas tentativas foram necessárias. Após isso, o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 18:
                 rl.question("Digite uma string: ", (entrada: string) => {
@@ -563,6 +611,10 @@ function mostrarMenu(): void {
                     voltarAoMenu();
                 });
             break;
+            /*
+            Explicação:
+            O programa conta o número de palavras em uma string fornecida pelo usuário. Ele utiliza o método split() para dividir a string em um array de palavras, usando um espaço como delimitador. Em seguida, ele filtra o array para contar apenas as palavras que têm comprimento maior que zero, garantindo que espaços extras não sejam contados como palavras. O resultado é exibido no console, e o programa oferece a opção de voltar ao menu para escolher outro exercício.
+            */
 
             case 0:
                 console.log("Programa encerrado.");
