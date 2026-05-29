@@ -4,7 +4,7 @@
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-LTS-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)
+
 
 </div>
 
@@ -50,7 +50,6 @@ Desenvolver algoritmos para solucionar uma lista de exercícios utilizando TypeS
 
 - Tipagem estática e inferência de tipos do TypeScript
 - Organização de projetos com `tsconfig.json` e separação `src/dist`
-- Leitura de dados via console com `readline-sync`
 - Programação orientada a objetos (classes, herança, interfaces)
 - Estruturas de controle, laços e manipulação de arrays
 - Boas práticas de código: comentários, nomenclatura e modularização
@@ -64,9 +63,7 @@ Desenvolver algoritmos para solucionar uma lista de exercícios utilizando TypeS
 | [TypeScript](https://www.typescriptlang.org/) | `^5.5.0` | Linguagem principal do projeto |
 | [Node.js](https://nodejs.org/) | LTS (18+) | Ambiente de execução |
 | [ts-node](https://typestrong.org/ts-node/) | `^10.9.2` | Execução direta de arquivos `.ts` |
-| [readline-sync](https://github.com/anseki/readline-sync) | `^1.4.10` | Leitura síncrona de entradas do console |
 | [@types/node](https://www.npmjs.com/package/@types/node) | `^22.0.0` | Tipagens do Node.js para TypeScript |
-| [@types/readline-sync](https://www.npmjs.com/package/@types/readline-sync) | `^1.4.8` | Tipagens do readline-sync |
 
 ---
 
@@ -90,27 +87,9 @@ npm -v
 ## 📁 Estrutura do Projeto
 
 ```
-MeuProjetoTS/
+ESOFT3B-PFE-Avalia-o-2o-Bimestre-Trabalho-Pr-tico-1/
 ├── src/                        ← Arquivos-fonte TypeScript (.ts)
-│   ├── index.ts                ← Ponto de entrada — menu principal
-│   ├── exercicio01.ts          ← Soma de dois números
-│   ├── exercicio02.ts          ← Verificar par ou ímpar
-│   ├── exercicio03.ts          ← Média de três notas
-│   ├── exercicio04.ts          ← Converter Celsius para Fahrenheit
-│   ├── exercicio05.ts          ← Exibir números pares de 1 a 20
-│   ├── exercicio06.ts          ← Ler 5 números e armazenar em array
-│   ├── exercicio07.ts          ← Maior número em um array
-│   ├── exercicio08.ts          ← Contar vogais em uma string
-│   ├── exercicio09.ts          ← Calculadora simples (+ - * /)
-│   ├── exercicio10.ts          ← Ordenar array em ordem crescente
-│   ├── exercicio11.ts          ← Classe Pessoa
-│   ├── exercicio12.ts          ← Classe Aluno (herança de Pessoa)
-│   ├── exercicio13.ts          ← Interface Veiculo + Classe Carro
-│   ├── exercicio14.ts          ← Tabuada
-│   ├── exercicio15.ts          ← Calculadora de IMC
-│   ├── exercicio16.ts          ← Validar senha
-│   ├── exercicio17.ts          ← Jogo de adivinhação
-│   └── exercicio18.ts          ← Contar palavras em uma string
+│   ├── Menu.ts                 ← Menu principal e exercicios
 ├── dist/                       ← Arquivos JavaScript compilados (gerado pelo tsc)
 ├── node_modules/               ← Dependências instaladas (gerado pelo npm install)
 ├── package.json                ← Metadados e scripts do projeto
@@ -163,8 +142,7 @@ O arquivo `tsconfig.json` foi configurado conforme as diretrizes da disciplina:
 ### 1. Clonar o repositório
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd MeuProjetoTS
+git clone https://github.com/JoaoLucasVeiga/ESOFT3B-PFE-Avalia-o-2o-Bimestre-Trabalho-Pr-tico-1
 ```
 
 ### 2. Instalar as dependências
@@ -178,7 +156,7 @@ npm install
 **Opção A — Execução direta (recomendado para desenvolvimento):**
 
 ```bash
-npx ts-node src/index.ts
+npx ts-node src/Menu.ts
 ```
 
 **Opção B — Compilar e executar:**
@@ -189,15 +167,6 @@ npx tsc
 
 # Executa o programa compilado
 node dist/index.js
-```
-
-**Opção C — Scripts do package.json:**
-
-```bash
-npm run dev      # Executa via ts-node (sem compilar)
-npm run build    # Compila o projeto
-npm run start    # Executa o JS compilado
-npm run watch    # Recompila automaticamente ao salvar
 ```
 
 ---
@@ -260,16 +229,6 @@ Pressione Enter para continuar...
 
 ---
 
-## 📂 Padrões e Convenções Adotados
-
-- **Nomenclatura de arquivos:** `exercicio01.ts`, `exercicio02.ts`, ..., `exercicio18.ts` (com zero à esquerda)
-- **Cabeçalho obrigatório:** todos os arquivos possuem o cabeçalho padrão exigido pelo professor com curso, disciplina, turma, componentes, data e descritivo
-- **Exportação:** cada exercício exporta uma função nomeada (`export function exercicioXX(): void`) importada pelo `index.ts`
-- **Tipagem explícita:** todas as variáveis, parâmetros e retornos possuem tipos declarados
-- **Comentários:** cada arquivo contém a lógica de resolução documentada em bloco de comentário acima da implementação
-
----
-
 ## 🔍 Depuração no VS Code
 
 Com `sourceMap: true` habilitado no `tsconfig.json`, é possível depurar diretamente nos arquivos `.ts`. Para configurar:
@@ -301,8 +260,6 @@ Com `sourceMap: true` habilitado no `tsconfig.json`, é possível depurar direta
 
 ## ⚠️ Observações Relevantes
 
-- O projeto utiliza **`readline-sync`** para leitura síncrona do console, mantendo o fluxo de entrada e saída simples e compatível com Node.js puro, sem dependência de frameworks
-- O bloco `"ts-node"` no `tsconfig.json` utiliza `"module": "CommonJS"` para garantir compatibilidade com o `ts-node`, enquanto o compilador principal usa `"module": "Node16"` conforme especificado no README da disciplina
 - A pasta `dist/` é gerada automaticamente pelo compilador e **não deve ser editada manualmente**
 - Caso ocorra erro de permissão ao instalar pacotes globais, utilize `sudo npm install -g typescript` no Linux/macOS ou execute o terminal como administrador no Windows
 
@@ -311,7 +268,7 @@ Com `sourceMap: true` habilitado no `tsconfig.json`, é possível depurar direta
 ## 🏫 Instruções para Correção e Apresentação
 
 1. **Clonar o repositório** e executar `npm install` na raiz do projeto
-2. **Iniciar o programa** com `npx ts-node src/index.ts`
+2. **Iniciar o programa** com `npx ts-node src/Menu.ts`
 3. **Selecionar o exercício** desejado digitando o número correspondente no menu
 4. **Fornecer os dados** solicitados e verificar o resultado exibido no console
 5. **Pressionar Enter** para retornar ao menu e testar outro exercício
@@ -326,7 +283,6 @@ Com `sourceMap: true` habilitado no `tsconfig.json`, é possível depurar direta
 - TypeScript Documentation. Disponível em: [https://www.typescriptlang.org/docs](https://www.typescriptlang.org/docs)
 - Visual Studio Code — TypeScript Tutorial. Disponível em: [https://code.visualstudio.com/docs/typescript/typescript-tutorial](https://code.visualstudio.com/docs/typescript/typescript-tutorial)
 - Node.js Documentation. Disponível em: [https://nodejs.org/en/docs](https://nodejs.org/en/docs)
-- readline-sync. Disponível em: [https://github.com/anseki/readline-sync](https://github.com/anseki/readline-sync)
 
 ---
 
