@@ -34,6 +34,7 @@ function mostrarMenu(): void {
 
         switch (opcao) {
             case 1:
+                console.log("=== Exercício 1 ===");
                 rl.question("Digite o primeiro número: ", (a: string) => {
                     rl.question("Digite o segundo número: ", (b: string) => {
                         const num1 = Number(a);
@@ -55,6 +56,7 @@ function mostrarMenu(): void {
             */
 
             case 2:
+                console.log("=== Exercício 2 ===");
                 rl.question("Digite um número inteiro: ", (entrada: string) => {
                     const num = Number(entrada);
                     if (isNaN(num) || !Number.isInteger(num)) {
@@ -72,6 +74,7 @@ function mostrarMenu(): void {
             */
 
             case 3:
+                console.log("=== Exercício 3 ===");
                 rl.question("Digite a primeira nota: ", (nota1: string) => {
                     rl.question("Digite a segunda nota: ", (nota2: string) => {
                         rl.question("Digite a terceira nota: ", (nota3: string) => {
@@ -92,6 +95,7 @@ function mostrarMenu(): void {
             */
                 
             case 4:
+                console.log("=== Exercício 4 ===");
                 rl.question("Digite a temperatura em graus Celsius: ", (entrada: string) => {
                     const celsius = Number(entrada);
 
@@ -126,6 +130,7 @@ function mostrarMenu(): void {
             */
 
             case 5:
+                console.log("=== Exercício 5 ===");
                 console.log("Números pares de 1 a 20:\n");
                 const pares: number[] = [];
 
@@ -142,6 +147,7 @@ function mostrarMenu(): void {
             */
 
             case 6:
+                console.log("=== Exercício 6 ===");
                 const numbers: number[] = [];
                 let count = 0;
                 function pedirNumero() {
@@ -170,6 +176,7 @@ function mostrarMenu(): void {
             */
 
             case 7:
+                console.log("=== Exercício 7 ===");
                 rl.question("Quantos números deseja inserir no array? ", (entradaQtd: string) => {
                     const quantidade = Number(entradaQtd);
 
@@ -217,6 +224,7 @@ function mostrarMenu(): void {
             */    
                 
             case 8:
+                console.log("=== Exercício 8 ===");
                 rl.question("Digite uma string: ", (entrada: string) => {
                     const vogais = entrada.match(/[aeiouAEIOU]/g);
                     const quantidadeVogais = vogais ? vogais.length : 0;
@@ -230,6 +238,7 @@ function mostrarMenu(): void {
             */
                 
             case 9:
+                console.log("=== Exercício 9 ===");
                 rl.question("primeiro Numero: ", (entrada1: string) => {
                     const num1 = Number(entrada1);
                     rl.question("segundo Numero: ", (entrada2: string) => {
@@ -269,6 +278,7 @@ function mostrarMenu(): void {
             */
 
             case 10:
+                console.log("=== Exercício 10 ===");
                 rl.question("Digite os números separados por espaço: ", (entrada: string) => {
                 const numeros: number[] = entrada.split(" ").map(num => Number(num.trim()));
 
@@ -289,6 +299,7 @@ function mostrarMenu(): void {
             */
 
             case 11:
+                console.log("=== Exercício 11 ===");
                 class Pessoa {
                     private nome: string;
                     private idade: number;
@@ -317,6 +328,7 @@ function mostrarMenu(): void {
             */
 
             case 12:
+                console.log("=== Exercício 12 ===");
                 class Pessoa1 {
                     protected nome: string;
                     protected idade: number;
@@ -359,6 +371,7 @@ function mostrarMenu(): void {
             */
 
             case 13:
+                console.log("=== Exercício 13 ===");
                 interface Veiculo {
                     acelerar(): void;
                     frear(): void;
@@ -479,6 +492,7 @@ function mostrarMenu(): void {
             */
 
             case 14:
+                console.log("=== Exercício 14 ===");
                 rl.question("Digite um número inteiro para ver sua tabuada: ", (entrada: string) => {
                     const num = Number(entrada);
                     if (isNaN(num) || !Number.isInteger(num)) {
@@ -499,6 +513,7 @@ function mostrarMenu(): void {
             */
 
             case 15:
+                console.log("=== Exercício 15 ===");
                 rl.question("Peso (kg): ", (pesoInput: string) => {
                     const peso = Number(pesoInput);
 
@@ -538,6 +553,7 @@ function mostrarMenu(): void {
             */
 
             case 16:
+                console.log("=== Exercício 16 ===");
                 rl.question("Digite a senha para validação: ", (senha: string) => { 
                     const temMaiuscula = /[A-Z]/.test(senha);
                     const temMinuscula = /[a-z]/.test(senha);
@@ -561,6 +577,7 @@ function mostrarMenu(): void {
             */
 
             case 17:
+                console.log("=== Exercício 17 ===");
                 console.log("Tentei sortear um número entre 1 e 100...");
                 console.log("Você consegue adivinhar qual é? Boa sorte!\n");
 
@@ -604,6 +621,7 @@ function mostrarMenu(): void {
             */
 
             case 18:
+                console.log("=== Exercício 18 ===");
                 rl.question("Digite uma string: ", (entrada: string) => {
                     const palavras = entrada.trim().split(/\s+/);
                     const quantidadePalavras = palavras.filter(p => p.length > 0).length;
